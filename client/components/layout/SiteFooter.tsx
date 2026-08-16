@@ -13,14 +13,41 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold mb-3">Company</h4>
           <ul className="space-y-2 text-sm text-foreground/70">
-            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-            <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+            <li>
+              <Link to="/about" className="hover:text-foreground">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-foreground">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-foreground">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
           <h4 className="text-sm font-semibold mb-3">Legal</h4>
           <ul className="space-y-2 text-sm text-foreground/70">
+            <li>
+              <Link to="/intent" className="hover:text-foreground">
+                Intent support
+              </Link>
+            </li>
+            <li>
+              <Link to="/intent/privacy" className="hover:text-foreground">
+                Intent privacy
+              </Link>
+            </li>
+            <li>
+              <Link to="/intent/terms" className="hover:text-foreground">
+                Intent terms
+              </Link>
+            </li>
             <li>© {new Date().getFullYear()} Evergoods Holdings LLC</li>
             <li>All rights reserved</li>
           </ul>

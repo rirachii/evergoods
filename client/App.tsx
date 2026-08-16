@@ -11,6 +11,9 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Intent from "./pages/Intent";
+import IntentPrivacy from "./pages/IntentPrivacy";
+import IntentTerms from "./pages/IntentTerms";
 import MainLayout from "@/components/layout/MainLayout";
 
 const queryClient = new QueryClient();
@@ -27,6 +30,9 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/intent" element={<Intent />} />
+            <Route path="/intent/privacy" element={<IntentPrivacy />} />
+            <Route path="/intent/terms" element={<IntentTerms />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
