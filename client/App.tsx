@@ -14,6 +14,8 @@ import Contact from "./pages/Contact";
 import Intent from "./pages/Intent";
 import IntentPrivacy from "./pages/IntentPrivacy";
 import IntentTerms from "./pages/IntentTerms";
+import DexPrivacy from "./pages/DexPrivacy";
+import DexSupport from "./pages/DexSupport";
 import MainLayout from "@/components/layout/MainLayout";
 
 const queryClient = new QueryClient();
@@ -33,6 +35,8 @@ const App = () => (
             <Route path="/intent" element={<Intent />} />
             <Route path="/intent/privacy" element={<IntentPrivacy />} />
             <Route path="/intent/terms" element={<IntentTerms />} />
+            <Route path="/dex/privacy" element={<DexPrivacy />} />
+            <Route path="/dex/support" element={<DexSupport />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

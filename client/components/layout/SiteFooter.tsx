@@ -48,6 +48,16 @@ export function SiteFooter() {
                 Intent terms
               </Link>
             </li>
+            <li>
+              <Link to="/dex/support" className="hover:text-foreground">
+                Dex Apps support
+              </Link>
+            </li>
+            <li>
+              <Link to="/dex/privacy" className="hover:text-foreground">
+                Dex Apps privacy
+              </Link>
+            </li>
             <li>© {new Date().getFullYear()} Evergoods Holdings LLC</li>
             <li>All rights reserved</li>
           </ul>
