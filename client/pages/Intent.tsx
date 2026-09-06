@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { useDocumentTitle } from "@/hooks/use-document-title";
+import { INTENT_APP_STORE_URL } from "@/lib/apps";
 import {
   ArrowRight,
+  ArrowUpRight,
   Clock3,
   LockKeyhole,
   Mail,
@@ -55,20 +57,34 @@ export default function Intent() {
               Intent（回神）幫你帶著明確目的使用社群平台，完成眼前的事，而不是被推薦動態帶走。
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button asChild className="min-h-12 rounded-full px-6">
+                <a
+                  href={INTENT_APP_STORE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="在 App Store 下載 Intent（在新分頁開啟）"
+                >
+                  在 App Store 下載
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </Button>
               <a href={`mailto:${supportEmail}?subject=Intent%20支援`}>
-                <Button className="min-h-12 w-full rounded-full px-6 sm:w-auto">
+                <Button
+                  variant="outline"
+                  className="min-h-12 w-full rounded-full px-6 sm:w-auto"
+                >
                   <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
                   聯絡支援
                 </Button>
               </a>
-              <Link
-                to="/intent/privacy"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border bg-background/80 px-6 text-sm font-semibold transition-colors hover:bg-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                查看隱私權政策
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
             </div>
+            <Link
+              to="/intent/privacy"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              查看隱私權政策
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
 
           <div className="relative mx-auto w-full max-w-md lg:mr-0">
