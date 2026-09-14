@@ -37,10 +37,13 @@ change App Store privacy questionnaires, or submit an iOS app for review.
 
 ## Production receipt
 
-Source commit: `a340370`, pushed on
-`codex/dex-connected-disclosures-2026-09-14`. The branch has not been merged into
-`main`; the existing Vercel production lane was deployed explicitly from this
-committed source.
+Source commit: `a340370`, initially pushed on
+`codex/dex-connected-disclosures-2026-09-14`. The existing Vercel production
+lane was deployed explicitly from this committed source. After the deployment
+and render review, a fresh fetch confirmed that remote `main` was still at
+`e84719f`. Clean `main` was fast-forwarded to reviewed branch tip `f6491cd` and
+pushed normally, without a force push. This documentation-only follow-up
+records that promotion; the deployed route source is unchanged.
 
 - Deployment `dpl_iZ13tQ2STmEPSMmwN6ePY6zQ8T8p` reached `READY`.
 - Immutable URL: <https://evergoods-lvvo0umpo-rirachiis-projects.vercel.app>.
@@ -49,6 +52,9 @@ committed source.
   200. Their script is `assets/index-BxXEXcIX.js`, byte-identical to the final
   tested local production asset. SHA-256:
   `da97f004864f72d13a9b5a318604c6e0645be15f36ea51e6fd05589cf913e054`.
+  After pushing `main`, both routes again returned HTTP 200 with this exact
+  asset hash. Vercel inspection still showed the same READY production
+  deployment and canonical alias.
 - The served route content contains the September 14 date, InsectDex, optional
   Apple sign-in, explicit sync, Activity and appeals, and the 48-hour revocation
   retry bound. The old blanket no-collection statement and two-business-day
