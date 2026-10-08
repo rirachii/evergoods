@@ -16,6 +16,8 @@ import IntentPrivacy from "./pages/IntentPrivacy";
 import IntentTerms from "./pages/IntentTerms";
 import DexPrivacy from "./pages/DexPrivacy";
 import DexSupport from "./pages/DexSupport";
+import ConsumerAppPrivacy from "./pages/ConsumerAppPrivacy";
+import ConsumerAppSupport from "./pages/ConsumerAppSupport";
 import MainLayout from "@/components/layout/MainLayout";
 
 const queryClient = new QueryClient();
@@ -37,6 +39,12 @@ const App = () => (
             <Route path="/intent/terms" element={<IntentTerms />} />
             <Route path="/dex/privacy" element={<DexPrivacy />} />
             <Route path="/dex/support" element={<DexSupport />} />
+            <Route path="/digicam" element={<ConsumerAppSupport app="digicam" />} />
+            <Route path="/digicam/privacy" element={<ConsumerAppPrivacy app="digicam" />} />
+            <Route path="/verselock" element={<ConsumerAppSupport app="verselock" />} />
+            <Route path="/verselock/privacy" element={<ConsumerAppPrivacy app="verselock" />} />
+            <Route path="/detox" element={<ConsumerAppSupport app="detox" />} />
+            <Route path="/detox/privacy" element={<ConsumerAppPrivacy app="detox" />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
