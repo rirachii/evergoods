@@ -1,7 +1,12 @@
 // Facts behind the privacy and support pages for Evergoods' on-device
 // subscription apps. Every statement here must match the shipped app.
 
-export type ConsumerAppId = "digicam" | "verselock" | "detox";
+export type ConsumerAppId =
+  | "digicam"
+  | "verselock"
+  | "detox"
+  | "nocontact"
+  | "goalgrid";
 
 export interface ConsumerApp {
   id: ConsumerAppId;
@@ -18,7 +23,7 @@ export interface ConsumerApp {
 export const supportEmail = "admin@evergoodsholdings.com";
 export const appleTermsUrl =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
-export const updatedAt = "October 8, 2026";
+export const updatedAt = "October 9, 2026";
 
 export const consumerApps: Record<ConsumerAppId, ConsumerApp> = {
   digicam: {
@@ -85,7 +90,7 @@ export const consumerApps: Record<ConsumerAppId, ConsumerApp> = {
     ],
     onDevice: [
       "Your answers, alarm time and chosen apps are stored on your iPhone.",
-      "Scripture comes from the public-domain King James Version bundled in the app.",
+      "Scripture comes from public-domain translations bundled in the app: the King James Version in English and the 1961 Korean Revised Version in Korean.",
     ],
     help: [
       {
@@ -124,6 +129,89 @@ export const consumerApps: Record<ConsumerAppId, ConsumerApp> = {
         question: "Screen Time could not connect",
         answer:
           "Screen Time needs a passcode on your iPhone and an iCloud account. Check Settings > Screen Time, then try again from the app.",
+      },
+    ],
+  },
+  nocontact: {
+    id: "nocontact",
+    name: "Sendless",
+    storeName: "Sendless: No Contact Tracker",
+    summary:
+      "A private no-contact tracker for after a breakup: count your days, and write the messages you want to send in a vault where they are kept and never sent.",
+    subscription: "Sendless Pro",
+    plans:
+      "Weekly, or yearly with a 3-day free trial. Prices are shown in the app before you subscribe.",
+    permissions: [
+      {
+        name: "Notifications",
+        detail:
+          "Optional. An evening mood check-in and a note at each milestone, scheduled on your iPhone. Discreet mode leaves the words “no contact” out of them.",
+      },
+      {
+        name: "Face ID or passcode",
+        detail:
+          "Optional. Locks Sendless when you turn the lock on. Apple handles Face ID and tells the app only whether you unlocked it.",
+      },
+    ],
+    onDevice: [
+      "The messages you write are saved on your iPhone and never sent to anyone, including Evergoods.",
+      "Your start date, answers, reasons and moods are stored on your iPhone.",
+      "Sendless widgets read your day count from the app's storage on your iPhone.",
+    ],
+    help: [
+      {
+        question: "I broke no contact",
+        answer:
+          "On Home, choose I broke no contact. You can restart the count; your best run is kept.",
+      },
+      {
+        question: "I don't want widgets or reminders to say “no contact”",
+        answer:
+          "In Sendless Settings, turn on Discreet widgets and reminders. They then show only the day count.",
+      },
+      {
+        question: "Can I get my messages back after deleting the app?",
+        answer:
+          "No. Messages exist only on your iPhone, so deleting Sendless deletes them.",
+      },
+    ],
+  },
+  goalgrid: {
+    id: "goalgrid",
+    name: "Lotus Grid",
+    storeName: "Lotus Grid: Goal Planner",
+    summary:
+      "A 9×9 goal chart (만다라트): one goal in the center, eight pillars around it and the small actions you check off each day.",
+    subscription: "Lotus Grid Pro",
+    plans:
+      "Weekly, or yearly with a 3-day free trial. Prices are shown in the app before you subscribe.",
+    permissions: [
+      {
+        name: "Notifications",
+        detail:
+          "Optional. A daily reminder for your actions, scheduled on your iPhone.",
+      },
+      {
+        name: "Add to Photos",
+        detail:
+          "Optional. Lets Lotus Grid save the chart image you export. It cannot read your existing library.",
+      },
+    ],
+    onDevice: [
+      "Your charts, goals, actions and check-offs are stored on your iPhone.",
+      "Lotus Grid widgets read your chart from the app's storage on your iPhone.",
+      "Exported images are made on your iPhone and go only where you share or save them.",
+    ],
+    help: [
+      {
+        question: "How do I set the chart as my wallpaper?",
+        answer:
+          "Tap the share button on Home, choose Lock Screen and a theme, save the image, then set it as your wallpaper in the Photos app.",
+      },
+      {
+        question: "The image did not save",
+        answer:
+          "Open Settings > Lotus Grid > Photos and choose Add Photos Only.",
       },
     ],
   },

@@ -45,6 +45,10 @@ const App = () => (
             <Route path="/verselock/privacy" element={<ConsumerAppPrivacy app="verselock" />} />
             <Route path="/detox" element={<ConsumerAppSupport app="detox" />} />
             <Route path="/detox/privacy" element={<ConsumerAppPrivacy app="detox" />} />
+            <Route path="/nocontact" element={<ConsumerAppSupport app="nocontact" />} />
+            <Route path="/nocontact/privacy" element={<ConsumerAppPrivacy app="nocontact" />} />
+            <Route path="/goalgrid" element={<ConsumerAppSupport app="goalgrid" />} />
+            <Route path="/goalgrid/privacy" element={<ConsumerAppPrivacy app="goalgrid" />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
