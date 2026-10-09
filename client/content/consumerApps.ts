@@ -6,7 +6,8 @@ export type ConsumerAppId =
   | "verselock"
   | "detox"
   | "nocontact"
-  | "goalgrid";
+  | "goalgrid"
+  | "quitsmoking";
 
 export interface ConsumerApp {
   id: ConsumerAppId;
@@ -212,6 +213,46 @@ export const consumerApps: Record<ConsumerAppId, ConsumerApp> = {
         question: "The image did not save",
         answer:
           "Open Settings > Lotus Grid > Photos and choose Add Photos Only.",
+      },
+    ],
+  },
+  quitsmoking: {
+    id: "quitsmoking",
+    name: "Unlit",
+    storeName: "Unlit: Quit Smoking & Vaping",
+    summary:
+      "A quit-smoking tracker: your smoke-free time, the money you keep, the WHO's health milestones, and a breathing exercise to ride out cravings.",
+    subscription: "Unlit Pro",
+    plans:
+      "Weekly, or yearly with a 3-day free trial. Prices are shown in the app before you subscribe.",
+    permissions: [
+      {
+        name: "Notifications",
+        detail:
+          "Optional. A note at each health milestone and smoke-free day, scheduled on your iPhone.",
+      },
+    ],
+    onDevice: [
+      "Your answers (what you use, how much, the price, your reasons and your quit day) are stored on your iPhone.",
+      "Cravings, slips and your savings goal are stored on your iPhone.",
+      "Unlit widgets read your progress from the app's storage on your iPhone.",
+      "The health milestones restate the World Health Organization's published benefits of quitting. They are general information, not medical advice.",
+    ],
+    help: [
+      {
+        question: "I smoked. Do I have to start over?",
+        answer:
+          "No. In the menu on Home, choose I smoked (or I vaped), then either log it and keep your clock, or restart your clock from now.",
+      },
+      {
+        question: "Where can I get help quitting?",
+        answer:
+          "Unlit links to national quitlines: 1544-9030 in Korea and 1-800-QUIT-NOW in the US. A doctor or pharmacist can also help.",
+      },
+      {
+        question: "Which widgets are free?",
+        answer:
+          "The small Home Screen widget is free. Unlit Pro adds the medium and Lock Screen widgets.",
       },
     ],
   },
