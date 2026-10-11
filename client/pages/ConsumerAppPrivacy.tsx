@@ -56,26 +56,28 @@ export default function ConsumerAppPrivacy({ app: id }: { app: ConsumerAppId }) 
         <p>You can change any permission in the iPhone Settings app.</p>
       </LegalSection>
 
-      <LegalSection number="4" title="Subscriptions">
-        <p>
-          {app.subscription} is sold through Apple. Apple processes payment and
-          shares only what the app needs to confirm your subscription on your
-          iPhone. See{" "}
-          <ExternalLegalLink href="https://www.apple.com/legal/privacy/">
-            Apple's Privacy Policy
-          </ExternalLegalLink>
-          .
-        </p>
-      </LegalSection>
+      {app.subscription && (
+        <LegalSection number="4" title="Subscriptions">
+          <p>
+            {app.subscription} is sold through Apple. Apple processes payment and
+            shares only what the app needs to confirm your subscription on your
+            iPhone. See{" "}
+            <ExternalLegalLink href="https://www.apple.com/legal/privacy/">
+              Apple's Privacy Policy
+            </ExternalLegalLink>
+            .
+          </p>
+        </LegalSection>
+      )}
 
-      <LegalSection number="5" title="Children">
+      <LegalSection number={app.subscription ? "5" : "4"} title="Children">
         <p>
           {app.name} does not knowingly collect information from anyone,
           including children, because it does not collect information at all.
         </p>
       </LegalSection>
 
-      <LegalSection number="6" title="Changes and contact">
+      <LegalSection number={app.subscription ? "6" : "5"} title="Changes and contact">
         <p>
           If this policy changes, the date above will change too. Questions:
           email <LegalEmail address={supportEmail} />.

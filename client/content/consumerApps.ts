@@ -1,5 +1,5 @@
 // Facts behind the privacy and support pages for Evergoods' on-device
-// subscription apps. Every statement here must match the shipped app.
+// apps. Every statement here must match the shipped app.
 
 export type ConsumerAppId =
   | "digicam"
@@ -7,15 +7,17 @@ export type ConsumerAppId =
   | "detox"
   | "nocontact"
   | "goalgrid"
-  | "quitsmoking";
+  | "quitsmoking"
+  | "fieldbug";
 
 export interface ConsumerApp {
   id: ConsumerAppId;
   name: string;
   storeName: string;
   summary: string;
-  subscription: string;
-  plans: string;
+  /** Omitted for free apps with no in-app purchases. */
+  subscription?: string;
+  plans?: string;
   permissions: { name: string; detail: string }[];
   onDevice: string[];
   help: { question: string; answer: string }[];
@@ -253,6 +255,57 @@ export const consumerApps: Record<ConsumerAppId, ConsumerApp> = {
         question: "Which widgets are free?",
         answer:
           "The small Home Screen widget is free. Unlit Pro adds the medium and Lock Screen widgets.",
+      },
+    ],
+  },
+  fieldbug: {
+    id: "fieldbug",
+    name: "Fieldbug",
+    storeName: "Fieldbug: Insects & Bugs Guide",
+    summary:
+      "A field guide and private collection for 40 recognizable insects across the United States. Photograph from a respectful distance, compare catalogue possibilities, and confirm each find yourself. Fieldbug is free with no purchases.",
+    permissions: [
+      {
+        name: "Camera",
+        detail: "Optional. Used only when you choose Take a photo.",
+      },
+      {
+        name: "Photos",
+        detail:
+          "Optional. The system photo picker shows your library, and Fieldbug receives only the photo you choose.",
+      },
+      {
+        name: "Location",
+        detail:
+          "Optional, only while you use the app. Pins a new camera find on your private map.",
+      },
+    ],
+    onDevice: [
+      "Matching runs on your iPhone with Apple's Vision framework. Photos are never uploaded.",
+      "Your confirmed finds, the photo you chose for each and its optional map location are stored on your iPhone.",
+      "If a photo you choose already includes a location, Fieldbug reads it on your iPhone to place that find on your private map.",
+      "You can export your collection from Profile at any time.",
+    ],
+    help: [
+      {
+        question: "Why do I confirm every find?",
+        answer:
+          "Fieldbug suggests possibilities from its catalogue on your iPhone. Many insects look alike, so nothing is added to your collection until you confirm the match. Suggestions are not authoritative identification or safety advice.",
+      },
+      {
+        question: "My insect is not in the catalogue",
+        answer:
+          "Fieldbug covers 40 recognizable US insects in six groups. Search by common or scientific name. If nothing matches, nothing is added.",
+      },
+      {
+        question: "Can I move my collection to a new iPhone?",
+        answer:
+          "Fieldbug has no account or cloud sync. Your collection is included in your iPhone backup, and Export local collection in Profile saves a copy of your records.",
+      },
+      {
+        question: "How do I remove a find?",
+        answer:
+          "Open the insect in your collection and tap Remove from my collection.",
       },
     ],
   },

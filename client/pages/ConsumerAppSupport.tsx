@@ -38,31 +38,33 @@ export default function ConsumerAppSupport({ app: id }: { app: ConsumerAppId }) 
         </p>
       </LegalSection>
 
-      <LegalSection number="2" title="Subscriptions">
-        <p>
-          {app.subscription}: {app.plans} Payment is charged to your Apple
-          Account. A subscription renews automatically unless you cancel at
-          least 24 hours before the end of the current period.
-        </p>
-        <LegalList>
-          <li>
-            To cancel, open Settings, tap your name, then Subscriptions.
-          </li>
-          <li>
-            To restore a purchase on a new iPhone, tap Restore purchases on
-            the subscription screen in the app.
-          </li>
-          <li>
-            Refunds are handled by Apple at{" "}
-            <ExternalLegalLink href="https://reportaproblem.apple.com">
-              reportaproblem.apple.com
-            </ExternalLegalLink>
-            .
-          </li>
-        </LegalList>
-      </LegalSection>
+      {app.subscription && (
+        <LegalSection number="2" title="Subscriptions">
+          <p>
+            {app.subscription}: {app.plans} Payment is charged to your Apple
+            Account. A subscription renews automatically unless you cancel at
+            least 24 hours before the end of the current period.
+          </p>
+          <LegalList>
+            <li>
+              To cancel, open Settings, tap your name, then Subscriptions.
+            </li>
+            <li>
+              To restore a purchase on a new iPhone, tap Restore purchases on
+              the subscription screen in the app.
+            </li>
+            <li>
+              Refunds are handled by Apple at{" "}
+              <ExternalLegalLink href="https://reportaproblem.apple.com">
+                reportaproblem.apple.com
+              </ExternalLegalLink>
+              .
+            </li>
+          </LegalList>
+        </LegalSection>
+      )}
 
-      <LegalSection number="3" title="Common questions">
+      <LegalSection number={app.subscription ? "3" : "2"} title="Common questions">
         {app.help.map((item) => (
           <div key={item.question}>
             <h3 className="font-semibold text-foreground">{item.question}</h3>
@@ -71,7 +73,7 @@ export default function ConsumerAppSupport({ app: id }: { app: ConsumerAppId }) 
         ))}
       </LegalSection>
 
-      <LegalSection number="4" title="Terms and privacy">
+      <LegalSection number={app.subscription ? "4" : "3"} title="Terms and privacy">
         <p>
           Use of {app.storeName} is governed by Apple's{" "}
           <ExternalLegalLink href={appleTermsUrl}>
